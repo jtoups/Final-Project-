@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <div class="headbar">
+      <img src="js/header draft-01.png" height=100px/>
+      <!-- <h1> Welcome to Trillow! </h1> -->
+    </div>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <h1>Transit Filters</h1>
+            <div class="input-group">
+              <p> How far are you willing to walk? </p>
+              <input id="distance" type="number"
+                     class="form-control"
+                     placeholder="Miles">
+
+               <fieldset id="lineSelect">
+                       <p>Which line do you want to live on?</p>
+                               <input class= "linechoice" type="radio" name="line" id="red" />Red <br />
+                               <input class= "linechoice" type="radio" name="line" id="blue" />Blue<br />
+                               <input class= "linechoice" type="radio" name="line" id="orange" />Orange<br />
+                               <input class = "linechoice" type="radio" name="line" id="green" />Green<br />
+                               <input class = "linechoice" type="radio" name="line" id="yellow" />Yellow<br />
+                               <input class = "linechoice" type="radio" name="line" id="silver" />Silver<br />
+                               <!-- <input type="submit" value="Submit now" /> -->
+               </fieldset>
+       </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <ul id="project-list" class="list-group">
+        </ul>
+      </div>
+    </div>
+    <!-- Map -->
+    <div id="map" class="map">
+      <div id="time-window"></div>
+    </div>
+    <!--Right Sidebar-->
+    <div class="rightbar">
+      <h1> Housing Requirements </h1>
+      <p> Min Bedrooms </p> <input id="bed" type="number" list="BedCount" value=0 class="form-control"</input>
+      <datalist id="BedCount">
+        <option value=1>
+        <option value=2>
+        <option value=3>
+        <option value=4>
+        </datalist>
+      <p> Min Bathrooms </p> <input id="bath" type="number" list="BathCount" value=0 class="form-control" </input>
+      <datalist id="BathCount">
+        <option value=1>
+        <option value=2>
+      </datalist>
+      <br> </br>
+      <input type="checkbox" name='carcheck' id="car" value="false" class="form-control" align=center> <p font-size=24px align=center>I need parking!</p>
+      <br></br>
+      <p> Min Price </p>
+       <input id="minPrice" type="number" value=0 class="form-control"</input>
+      <p> Max Price  </p>
+      <input id="maxPrice" type="number" value=5000 class="form-control"</input>
+      <br> </br>
+      <input id="submitbutton" type="submit" value="Find my dream home!"></input>
+    </div>
+    <!-- Javascript Imports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw.js"></script>
+    <script src="js/setup.js"></script>
+  </body>
+</html>
