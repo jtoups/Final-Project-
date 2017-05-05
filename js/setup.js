@@ -56,18 +56,17 @@ app.geojsonClient.execute("SELECT *FROM metro_lines_regional")
   });
 
 app.geojsonClient.execute("SELECT *FROM metro_stations_regional")
-    .done(function(data) {
-      metroStations = data;
-      stationLayer = L.geoJson(data,
-        {pointToLayer: function(geoJsonPoint, latlng){
-          var stationIcon = L.Icon({
-            iconUrl:'js/stationicon-01.png'
-          });
-          return L.marker(latlng, {icon:stationIcon});
-        }
-      });
-      stationLayer.addTo(app.map);
-    })
+  .done(function(data) {
+    metroStations = data;
+    stationLayer = L.geoJson(data, {
+      pointToLayer: function(geoJsonPoint, latlng) {
+        var stationIcon = L.icon({
+          iconUrl:'js/stationicon-01.png'
+        });
+        return L.marker(latlng, { icon: stationIcon })
+      }
+    }).addTo(app.map)
+  })
 
 
 
