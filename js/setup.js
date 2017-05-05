@@ -59,22 +59,17 @@ app.geojsonClient.execute("SELECT *FROM metro_stations_regional")
     .done(function(data) {
       metroStations = data;
       stationLayer = L.geoJson(data,
-        {pointToLayer:function(geoJsonPoint, latlng){
+        {pointToLayer: function(geoJsonPoint, latlng){
           var stationIcon = L.Icon({
-            options: {
-              iconUrl:'station icon-01.png'
-            }
+            iconUrl:'js/stationicon-01.png'
           });
           return L.marker(latlng, {icon:stationIcon});
-
         }
-
-
       });
-    }).addTo(app.map);
+      stationLayer.addTo(app.map);
+    })
 
-    .error(function(errors) {
-    });
+
 
 app.geojsonClient.execute("SELECT *FROM final_rental_data")
       .done(function(data) {
